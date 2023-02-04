@@ -1,6 +1,6 @@
 <?php
 
-// Nouvelle fonction qui nous permet d'éviter de répéter du code
+// New function to connect database
 function dbConnect()
 {
 	// Connect database

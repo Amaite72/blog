@@ -1,48 +1,53 @@
 <?php
-//routeur
+//router
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/post.php');
 require_once('src/controllers/add_Comment.php');
 
-if (isset($_GET['action']) && $_GET['action'] !== '') {
+try{
 
-	if ($_GET['action'] === 'post') {
+	if (isset($_GET['action']) && $_GET['action'] !== '') {
 
-    	if (isset($_GET['id']) && $_GET['id'] > 0) {
+		if ($_GET['action'] === 'post') {
 
-        	$id = $_GET['id'];
+	    	if (isset($_GET['id']) && $_GET['id'] > 0) {
 
-        	post($id);
-            
-    	} else {
+	        	$id = $_GET['id'];
 
-        	echo 'Erreur : aucun identifiant de billet envoyé';
+	        	post($id);
+			
+	    	} else {
 
-        	die;
-    	}
-    //j'appelle le contrôleur addComment
-	}else if($_GET['action'] === 'addComment'){
-        //je teste si on a bien un ID de billet
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            
-        	$id = $_GET['id'];
+	        	echo 'Erreur : aucun identifiant de billet envoyé';
 
-        	addComment($id, $_POST);
+	        	die;
+	    	}
+	    //Call the controller addComment
+		}else if($_GET['action'] === 'addComment'){
+	        //I try to watch if the id is in the url
+	        if (isset($_GET['id']) && $_GET['id'] > 0) {
+			
+	        	$id = $_GET['id'];
 
-    	} else {
+	        	addComment($id, $_POST);
 
-        	echo 'Erreur : aucun identifiant de billet envoyé';
+	    	} else {
 
-        	die;
-    	}
-    }
-     else {
-    	echo "Erreur 404 : la page que vous recherchez n'existe pas.";
+	        	echo 'Erreur : aucun identifiant de billet envoyé';
+
+	        	die;
+	    	}
+	    }
+	     else {
+	    	echo "Erreur 404 : la page que vous recherchez n'existe pas.";
+		}
+	}else {
+
+		homepage();
 	}
-}else {
 
-	homepage();
+} catch (Exception $e) { // if error get message
+
+	echo 'Erreur : '.$e->getMessage();
 }
-
-
 
