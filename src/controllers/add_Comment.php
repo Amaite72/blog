@@ -14,7 +14,7 @@ function addComment($id, array $input)
 
 	}else {
 
-    	die('Les données du formulaire sont invalides.');
+		throw new Exception('Les données du formulaire sont invalides.');
 
 	}
 
@@ -22,7 +22,7 @@ function addComment($id, array $input)
 
 	if (!$success) {
 
-    	die('Impossible d\'ajouter le commentaire !');
+		throw new Exception('Impossible d\'ajouter le commentaire !');
 
 	}else {
 

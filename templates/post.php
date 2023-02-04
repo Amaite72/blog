@@ -7,7 +7,7 @@
     </head>
  
     <body>
-        <h1>Le super blog de l'AVBN !</h1>
+        <h1>Bienvenue sur Potablog</h1>
         <p><a href="index.php">Retour à la liste des billets</a></p>
 
         <div class="news">

@@ -10,7 +10,7 @@
 
 <?php ob_start(); ?>
    <body>
-      <h1>Le super blog de l'AVBN !</h1>
+      <h1>Bienvenue sur Potablog !</h1>
       <p>Derniers billets du blog :</p>
       <?php
          foreach($posts as $post){        

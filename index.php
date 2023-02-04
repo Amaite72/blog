@@ -4,6 +4,7 @@ require_once('src/controllers/homepage.php');
 require_once('src/controllers/post.php');
 require_once('src/controllers/add_Comment.php');
 
+// add a exception
 try{
 
 	if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -18,7 +19,7 @@ try{
 			
 	    	} else {
 
-	        	echo 'Erreur : aucun identifiant de billet envoyé';
+	        	throw new Exception('Aucun identifiant de billet envoyé');
 
 	        	die;
 	    	}
@@ -33,13 +34,14 @@ try{
 
 	    	} else {
 
-	        	echo 'Erreur : aucun identifiant de billet envoyé';
+				throw new Exception('Aucun identifiant de billet envoyé');
 
 	        	die;
 	    	}
 	    }
 	     else {
-	    	echo "Erreur 404 : la page que vous recherchez n'existe pas.";
+
+			throw new Exception("Erreur 404 : la page que vous recherchez n'existe pas.");
 		}
 	}else {
 
@@ -48,6 +50,8 @@ try{
 
 } catch (Exception $e) { // if error get message
 
-	echo 'Erreur : '.$e->getMessage();
+	$errorMessage = $e->getMessage();
+
+	require('templates/error.php');
 }
 
