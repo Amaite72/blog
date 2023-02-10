@@ -32,7 +32,7 @@
       <?php
       } // End of the posts loop
       ?>
-
+      
    <?php $content = ob_get_clean(); ?>
       
    <?php require('layout.php') ?>

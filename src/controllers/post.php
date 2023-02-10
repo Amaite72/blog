@@ -8,7 +8,9 @@ function post(string $id)
 {
 	
 	$post = getPost($id);
-	$comments = getComments($id);
+	$comments = new Comment($id);
+	$comments->getComments();
+	
 
 	require('templates/post.php');
 }

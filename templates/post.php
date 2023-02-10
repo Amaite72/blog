@@ -33,6 +33,7 @@
         <h2>Commentaires</h2>
  
         <?php
+        $comments = $comments->getComments();
         foreach ($comments as $comment) {
         ?>
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['french_creation_date'] ?></p>
