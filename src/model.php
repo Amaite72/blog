@@ -1,38 +1,22 @@
 <?php
-
-// New function to connect database
-function dbConnect()
-{
-	// Connect database
-   try
-   {
-       $database = new PDO('mysql:host=localhost;dbname=blog_exo;charset=utf8',
-       'amaite',
-       'Uaherevauiaoe72');
-
-       return $database;
-   }
-      catch(Exception $e)
-         {
-            die('Erreur : '.$e->getMessage());
-         }
-}
+require('connectDb.php');
 
 function getPosts(){
 
    $database = dbConnect();
         // We retrieve the 5 last blog posts.
-        $statement = $database->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh%imin%ss") 
+        //the @ of the SQL DATE_FORMAT is for the function on the homepage to cut string for get the date format
+        $statement = $database->query('SELECT id, `image`, title, content, DATE_FORMAT(creation_date, "%d %m %Y,@ %H:%i") 
                                       AS creation_date_fr 
                                       FROM posts 
                                       ORDER BY creation_date 
-                                      DESC LIMIT 0, 5');
+                                      DESC LIMIT 0, 9');
 
         $posts = [];
-
         while ($row = $statement->fetch())
             {
                $post = [
+                    'image' => $row['image'],
                     'title' => $row['title'],
                     'content' => $row['content'],
                     'frenchCreationDate' => $row['creation_date_fr'],
@@ -52,7 +36,7 @@ function getPost($id){
 
    $database = dbConnect();
 
-   $statement = $database->prepare("SELECT id, title, content, 
+   $statement = $database->prepare("SELECT id, `image`, title, content, 
                                      DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') 
                                      AS french_creation_date 
                                      FROM posts 
@@ -63,6 +47,7 @@ function getPost($id){
         
         $row = $statement->fetch();
             $post = [
+                'image' => $row['image'],
                 'title' => $row['title'],
                 'french_creation_date' => $row['french_creation_date'],
                 'content' => $row['content'],
@@ -71,7 +56,7 @@ function getPost($id){
      
         return $post;
    
-}
+} 
 
 
 

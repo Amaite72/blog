@@ -1,27 +1,126 @@
+/**************************************************************************
+                                    BALISE GENERALE
+**************************************************************************/
+body{
+    position:relative;
+}
+h1{
+    padding-top:30px;
+}
 h1, h3
 {
     text-align:center;
 }
 h3
 {
-    background-color:black;
-    color:white;
+    color:#222222;
     font-size:0.9em;
     margin-bottom:0px;
+    padding: 15px;
+    text-transform: capitalize;
+    font-weight: 600;
 }
-.news p
-{
-    background-color:#CCCCCC;
-    margin-top:0px;
-}
-.news
-{
-    width:70%;
-    margin:auto;
-}
-
 a
 {
     text-decoration: none;
-    color: blue;
+    color: #07574dab;
+}
+/**************************************************************************
+                                    NAV
+**************************************************************************/
+#logo{
+    width: 50px;
+}
+.fa-solid.fa-bars{
+    color:#fff;
+    font-size:30px;
+}
+#nav-choices-display{
+    display:none;
+}
+#nav-choices{
+    border: none;
+    background-color: transparent;
+}
+.navbar-brand{
+    color:#fff;
+}
+
+.bg-img-potager{
+    height: 300px;
+    background-image: url("assets/img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+#title-bg-img{
+    position: absolute;
+    bottom:30px;
+    right: 20px;
+    font-size: 4em;
+    padding: 5px;
+    color: #07574dab;
+    text-transform: capitalize;
+}
+/**************************************************************************
+                                    POST
+**************************************************************************/
+.img-post{
+    width: 100%;
+    height: 200px;
+}
+.news p
+{
+    color: #8A8A8A;
+}
+.news
+{
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+}
+.format-date{
+    color:#8A8A8A;
+}
+.format-user{
+    color:#222222;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.section-profil{
+    display: flex;
+    gap:5px;
+}
+.section-profil-user-date{
+    display: flex;
+    flex-direction: column;
+}
+.img-profil{
+    padding: 10px 11px;
+    color: #7d7c7c;
+    border-radius: 50%;
+    background-color: #eaeef2;
+    border: solid 1px #aeaeae;
+    font-size: 1.3em;
+}
+/**************************************************************************
+                                    FORM
+**************************************************************************/
+.form-fo-contain{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+form{
+    width: 90%;
+}
+.btn.btn-primary{
+    background-color:#07574d;
 }

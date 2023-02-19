@@ -2,7 +2,9 @@
 //router
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/post.php');
-require_once('src/controllers/add_Comment.php');
+require_once('src/controllers/addComment.php');
+require_once('src/controllers/userController.php');
+require_once('src/controllers/addPost.php');
 
 // add a exception
 try{
@@ -29,7 +31,6 @@ try{
 	        if (isset($_GET['id']) && $_GET['id'] > 0) {
 			
 	        	$id = $_GET['id'];
-
 	        	addComment($id, $_POST);
 
 	    	} else {
@@ -38,7 +39,19 @@ try{
 
 	        	die;
 	    	}
-	    }
+	    }else if($_GET['action'] === 'userController'){
+			if(isset($_POST)){
+
+				createUser($_POST);
+
+			}
+		}else if($_GET['action'] === 'article'){
+			if(isset($_POST)){
+
+				addPost($_POST);
+
+			}
+		}
 	     else {
 
 			throw new Exception("Erreur 404 : la page que vous recherchez n'existe pas.");

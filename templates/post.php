@@ -1,45 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Le blog de l'AVBN</title>
-        <link href="style.css" rel="stylesheet" />
-    </head>
- 
-    <body>
+<?php require "header.php"; ?>
+    
+        <div class="container">
         <h1>Bienvenue sur Potablog</h1>
-        <p><a href="index.php">Retour à la liste des billets</a></p>
 
-        <div class="news">
+        <div class="container">
             <h3>
-                <?= htmlspecialchars($post['title']) ?>
-                <em>le <?= $post['french_creation_date'] ?></em>
+                <?= $post['title'] ?>
+                
             </h3>
  
             <p>
-                <?= nl2br(htmlspecialchars($post['content'])) ?>
+                <?= nl2br($post['content']) ?>
             </p>
+            <em>le <?= $post['french_creation_date'] ?></em>
         </div>
-
-        <form action="index.php?action=addComment&id=<?= $post['id'] ?>" method="POST">
-            <label for="author">Auteur : </label>
-            <input type="text" name="author" id="author">
-            <label for="comment">Commentaires : </label>
-            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-
-            <input type="submit" value="submit">
-        </form>
-
+        <div class="container">
+        <?php require "form/formComment.php"; ?>
+        </div>
+        <div class="container">
         <h2>Commentaires</h2>
  
         <?php
         $comments = $comments->getComments();
         foreach ($comments as $comment) {
         ?>
-        <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['french_creation_date'] ?></p>
-        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+        <p><strong><?= $comment['author'] ?></strong> le <?= $comment['french_creation_date'] ?></p>
+        <p><?= nl2br($comment['comment']) ?></p>
         <?php
         }
         ?>
-    </body>
-</html>
+        </div>
+<?php require "footer.php"; ?>
