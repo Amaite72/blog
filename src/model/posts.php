@@ -4,25 +4,57 @@ namespace Model;
 
 class Posts{  
 
-    public function createPost(string $image, string $title, string $content)
-    {
-        $database = dbConnect();
-   
-        $statement = $database->prepare('INSERT INTO posts(`image`, title, content, creation_date)
-                                        VALUES(?, ?, ?, NOW())');
+    private string $id;
+    private string $image;
+    private string $title;
+    private string $content;
+    private string $creation_date;
 
-        $statement->execute([$image, $title, $content]);
+    public function getId()
+    {
+        return $this->id;
     }
 
-    public function updatePost(array $post)
+    public function getImage()
     {
-        $statement = $this->pdo->prepare('UPDATE posts SET `image` = ?,`title` = ?, `content` = ?, `creation_date` = NOW() WHERE id = ?');
-        return $statement->execute([
-            $this->image->getImage(),
-            $this->title->getTitle(),
-            $this->content->getContent(),
-            $this->id->getId()
-        ]);
+        return $this->image;
     }
+
+    public function setImage(string $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getCreationDate()
+    {
+        return $this->creation_date;
+    }
+    
 
 }

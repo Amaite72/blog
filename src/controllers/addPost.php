@@ -1,6 +1,6 @@
 <?php
 
-require_once('src/model/posts.php');
+require_once('src/model/post.php');
 
 function addPost(array $input)
 {
@@ -15,8 +15,8 @@ function addPost(array $input)
 		throw new Exception('Les données du formulaire sont invalides.');
 
 	}
-
-	$post = new \Model\Posts();
+	//Create new post
+	$post = new \Model\Post(getPdo());
     $post->createPost($image, $title, $content);
 
 	if (!$post) {
@@ -24,8 +24,9 @@ function addPost(array $input)
 		throw new Exception('Impossible d\'ajouter le post!');
 
 	}else {
-
+		
     	header('Location: /index.php');
+		
 	}
 	
 }

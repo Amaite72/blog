@@ -16,13 +16,14 @@ class User{
    
         $statement = $database->prepare('INSERT INTO users(lname, fname, username, email, `password`)
                                              VALUES(:lname, :fname, :username, :email, :password)');
-
+        
         $statement->execute([
                       'lname' => $lname, 
                       'fname' => $fname, 
                       'username' => $username, 
                       'email' => $email, 
                       'password' => $password]);
+        
     }
 
 

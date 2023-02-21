@@ -3,57 +3,62 @@
 namespace Model;
 
 class Post{
+    
+    private $pdo;
 
-    public string $id;
-    public string $image;
-    public string $title;
-    public string $content;
-    public string $creation_date;
-
-    public function getId()
+    public function __construct(\PDO $pdo)
     {
-        return $this->id;
+        $this->pdo = $pdo;
     }
 
-    public function getImage()
+    function getPost($id){
+     
+        $statement = $this->pdo->prepare("SELECT id, `image`, title, content, 
+                                          DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') 
+                                          AS french_creation_date 
+                                          FROM posts 
+                                          WHERE id = ?"
+                                         );
+     
+             $statement->execute([$id]);
+             
+             $row = $statement->fetch();
+                 $post = [
+                     'image' => $row['image'],
+                     'title' => $row['title'],
+                     'french_creation_date' => $row['french_creation_date'],
+                     'content' => $row['content'],
+                     'id' => $row['id'],
+                 ];
+          
+             return $post;
+        
+    } 
+
+    public function createPost(string $image, string $title, string $content)
     {
-        return $this->image;
+   
+        $statement = $this->pdo->prepare('INSERT INTO posts(`image`, title, content, creation_date)
+                                        VALUES(?, ?, ?, NOW())');
+
+        $statement->execute([$image, $title, $content]);
     }
 
-    public function setImage(string $image)
+    public function updatePost(string $id, array $post)
     {
-        $this->image = $image;
+        $image = $post['image'];
+        $title = $post['title'];
+        $content = $post['content'];
 
-        return $this;
+        $statement = $this->pdo->prepare('UPDATE posts SET `image` = ?,`title` = ?, `content` = ?, `creation_date` = NOW() WHERE id = ?');
+        $statement->execute([$image, $title, $content, $id]);
     }
 
-    public function getTitle()
-    {
-        return $this->title;
-    }
+    public function deletePost(string $id)
+    {  
+        $statement = $this->pdo->prepare('DELETE FROM posts WHERE id = ?');
 
-    public function setTitle(string $title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function getCreationDate()
-    {
-        return $this->creation_date;
+        $statement->execute([$id]);
     }
 
 }

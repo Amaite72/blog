@@ -31,19 +31,44 @@ a
 #logo{
     width: 50px;
 }
-.fa-solid.fa-bars{
+#logo2{
+    width: 50px;
+}
+.fa-solid{
     color:#fff;
     font-size:30px;
 }
+.navbar-nav .nav-item .nav-link{
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    background-color: #ececec5e;
+    border-radius: 5px;
+}
 #nav-choices-display{
     display:none;
+    width: 1px;
 }
 #nav-choices{
     border: none;
     background-color: transparent;
 }
+#nav-choices-close{
+    border: none;
+    background-color: transparent;
+    display:none;
+
+}
+#nav-choices-close i{
+    color:#07574d;   
+}
 .navbar-brand{
     color:#fff;
+}
+#logo-title{
+    display: flex;
+    justify-content: space-between;
+    margin: 14px 10px 0 12px;
 }
 
 .bg-img-potager{
@@ -58,19 +83,22 @@ a
 }
 #title-bg-img{
     position: absolute;
-    bottom:30px;
+    bottom:10px;
     right: 20px;
     font-size: 4em;
     padding: 5px;
-    color: #07574dab;
+    color: #ffffff78;
     text-transform: capitalize;
 }
 /**************************************************************************
                                     POST
 **************************************************************************/
-.img-post{
+.img-posts{
     width: 100%;
     height: 200px;
+}
+.img-post{
+    width: 100%;
 }
 .news p
 {
@@ -116,11 +144,12 @@ a
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 20%;
 }
 form{
     width: 90%;
 }
 .btn.btn-primary{
     background-color:#07574d;
+    border-color: #07574dab;
 }

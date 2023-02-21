@@ -1,6 +1,6 @@
 <div class="form-fo-contain">
     <h2 class="h2">Ajouter un article</h2>
-    <form action="../index.php?action=article" method="POST">
+    <form action="../index.php?action=addPost" method="POST">
       <div class="mb-3">
         <label for="formFile" class="form-label">Image</label>
         <input class="form-control" type="file" id="formFile" name="image">

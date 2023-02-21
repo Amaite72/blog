@@ -1,0 +1,16 @@
+{
+    "name": "dell-optiplex-9010/blog",
+    "autoload": {
+        "psr-4": {
+            "Model\\": "src/Model",
+            "App\\": "src/App"
+        }
+    },
+    "authors": [
+        {
+            "name": "amaite",
+            "email": "a.taputu@enssop.fr"
+        }
+    ],
+    "require": {}
+}

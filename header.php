@@ -10,6 +10,11 @@
    </head>
    <body>
    <div id="nav-choices-display">
+      <div id="logo-title">
+         <a class="navbar-brand" href="/index.php"><img src="../assets/logo2.png" id="logo2" alt="logo"></a>
+         <h2>Potablog</h2>
+         <button id="nav-choices-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
        <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="">Semi</a></li>
           <li class="nav-item"><a class="nav-link" href="">Plantation</a></li>
@@ -17,15 +22,13 @@
           <li class="nav-item"><a class="nav-link" href="">Légumes</a></li>
           <li class="nav-item"><a class="nav-link" href="/templates/user.php">Utilisateurs</a></li>
        </ul>   
-   </div>
-     
-   
+   </div>  
    <div class="bg-img-potager">
       <h2 id="title-bg-img">Bienvenue sur Potablog</h2>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="/index.php"><img src="../assets/logo.png" id="logo" alt="logo"></a>
-          <button id="nav-choices"><i class="fa-solid fa-bars"></i></button>
+          <button id="nav-choices"><i class="fa-solid fa-bars"></i></button>      
         </div>
       </nav>
    </div>

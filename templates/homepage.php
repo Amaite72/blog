@@ -3,22 +3,22 @@ require "header.php";
 $title = "Potablog"; ?>
 
 <?php ob_start(); ?>
-<h1 class="h1">BIENVENUE</h1>
+<h1 class="h1">ARTICLES</h1>
       <div class="container d-flex flex-wrap justify-content-center gap-5">
       
       <?php
          foreach($posts as $post){        
       ?>
       <a href="/index.php?action=post&id=<?= urlencode($post['id'])?>" class="news">
-            <img class="img-post" src=<?php echo $post['image']; ?> alt="image">
+            <img class="img-posts" src=<?php echo $post['image']; ?> alt="image">
             <h3>
                <?= $post['title']; ?>
                
             </h3>
             <p>
-               <?=
+               <?php
                 // We display the content
-                nl2br($post['content']);
+                echo substr($post['content'], 0, 45).'...';
                ?>
             </p>
             <div class="section-profil">

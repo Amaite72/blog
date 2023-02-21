@@ -1,8 +1,6 @@
-<?php require('../validFieldsForm.php'); ?>
-
 <div class="form-fo-contain">
     <h2 class="h2">Ajouter un utilisateur</h2>
-    <form action="../index.php?action=userController" method="POST" >
+    <form action="../index.php?action=addUser" method="POST" >
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
