@@ -39,3 +39,19 @@ function render(string $view, $parameters = [])
     extract($parameters);
     include 'Views/'.$view.'.php';
 } */
+
+function separateDate($date){
+    $cutTolimit = '@';
+    $newDate = substr($date, 0, strpos($date,$cutTolimit)); 
+    return $newDate;
+}
+
+function separateTime($time){
+    $cutTolimit = '@';
+    $newTime = substr($time, 12, strpos($time,$cutTolimit)); 
+    return $newTime;
+}
+
+/* function success(){
+
+} */

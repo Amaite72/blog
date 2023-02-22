@@ -7,7 +7,7 @@ $title = "Potablog"; ?>
       <div class="container d-flex flex-wrap justify-content-center gap-5">
       
       <?php
-         foreach($posts as $post){        
+         foreach($articles as $post){        
       ?>
       <a href="/index.php?action=post&id=<?= urlencode($post['id'])?>" class="news">
             <img class="img-posts" src=<?php echo $post['image']; ?> alt="image">
@@ -17,8 +17,8 @@ $title = "Potablog"; ?>
             </h3>
             <p>
                <?php
-                // We display the content
-                echo substr($post['content'], 0, 45).'...';
+                // we display the content by limiting the number of characters at 120
+                echo substr($post['content'], 0, 120).' . . .';
                ?>
             </p>
             <div class="section-profil">
@@ -27,6 +27,7 @@ $title = "Potablog"; ?>
                   <small class="format-user">Memet</small>
                   <small class="format-date">
                      <?php
+                     // we display the date and the time on the new format
                      echo separateDate($post['frenchCreationDate']);
                      echo separateTime($post['frenchCreationDate']);
                      ?>

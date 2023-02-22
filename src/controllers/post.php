@@ -13,7 +13,6 @@ function post(string $id)
 	$comments = new \Model\Comment($id);
 	$getComments = $comments->getComments();
 	
-	
 	require('templates/post.php');
 }
 

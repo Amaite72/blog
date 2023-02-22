@@ -14,8 +14,7 @@ h1, h3
 h3
 {
     color:#222222;
-    font-size:0.9em;
-    margin-bottom:0px;
+    font-size:1em;
     padding: 15px;
     text-transform: capitalize;
     font-weight: 600;
@@ -46,8 +45,7 @@ a
     border-radius: 5px;
 }
 #nav-choices-display{
-    display:none;
-    width: 1px;
+    left: -100%;
 }
 #nav-choices{
     border: none;
@@ -103,12 +101,13 @@ a
 .news p
 {
     color: #8A8A8A;
+    padding-bottom: 20px;
 }
 .news
 {
     display: block;
     width: 300px;
-    height: 300px;
+    height: 400px;
     margin-top: 40px;
 }
 .format-date{
@@ -135,6 +134,33 @@ a
     border: solid 1px #aeaeae;
     font-size: 1.3em;
 }
+.add-button{
+    width: 45px;
+    height: 45px;    
+    border-radius: 50%;
+    background-color: #07574d;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    transition: transform 0.3s;
+    box-shadow: 0 6px 10px 0 #0000001a, 0 1px 18px 0 #0000001a 0 3px 5px -1px #0003;
+}
+.add-button .fa-solid{
+    font-size: 20px;
+    color:#ffffff;
+}
+.button.button-left{
+    position: absolute;
+    bottom: 1px;
+    right: 12px;
+    padding: 15px 20px 10px 20px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+}
+.button.button-left .fa-solid{
+    font-size: 20px;
+    color:#222222;
+}
 /**************************************************************************
                                     FORM
 **************************************************************************/
@@ -144,7 +170,7 @@ a
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 form{
     width: 90%;

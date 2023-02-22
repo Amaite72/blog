@@ -32,32 +32,6 @@ function getPosts(){
 
 
 
-function getPost($id){
-
-   $database = dbConnect();
-
-   $statement = $database->prepare("SELECT id, `image`, title, content, 
-                                     DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') 
-                                     AS french_creation_date 
-                                     FROM posts 
-                                     WHERE id = ?"
-                                    );
-
-        $statement->execute([$id]);
-        
-        $row = $statement->fetch();
-            $post = [
-                'image' => $row['image'],
-                'title' => $row['title'],
-                'french_creation_date' => $row['french_creation_date'],
-                'content' => $row['content'],
-                'id' => $row['id'],
-            ];
-     
-        return $post;
-   
-} 
-
 
 
 

@@ -14,7 +14,7 @@ class Post{
     function getPost($id){
      
         $statement = $this->pdo->prepare("SELECT id, `image`, title, content, 
-                                          DATE_FORMAT(creation_date, '%d/%m/%Y à %Hh%imin%ss') 
+                                          DATE_FORMAT(creation_date, '%d %m %Y,@ %H:%i') 
                                           AS french_creation_date 
                                           FROM posts 
                                           WHERE id = ?"
@@ -34,6 +34,34 @@ class Post{
              return $post;
         
     } 
+
+    function getPosts(){
+       
+             // We retrieve the 5 last blog posts.
+             //the @ of the SQL DATE_FORMAT is for the function on the homepage to cut string for get the date format
+             $statement = $this->pdo->query('SELECT id, `image`, title, content, DATE_FORMAT(creation_date, "%d %m %Y,@ %H:%i") 
+                                           AS creation_date_fr 
+                                           FROM posts 
+                                           ORDER BY creation_date 
+                                           DESC LIMIT 0, 9');
+     
+             $posts = [];
+             while ($row = $statement->fetch())
+                 {
+                    $post = [
+                         'image' => $row['image'],
+                         'title' => $row['title'],
+                         'content' => $row['content'],
+                         'frenchCreationDate' => $row['creation_date_fr'],
+                         'id' => $row['id'],
+                    ];
+     
+                    $posts[] = $post;
+                 } 
+     
+                 return $posts;
+     
+     }
 
     public function createPost(string $image, string $title, string $content)
     {
