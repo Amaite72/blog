@@ -126,12 +126,12 @@ a
     display: flex;
     flex-direction: column;
 }
-.img-profil{
+.fa-user.img-profil{
     padding: 10px 11px;
     color: #7d7c7c;
     border-radius: 50%;
     background-color: #eaeef2;
-    border: solid 1px #aeaeae;
+    border: solid 2px #aeaeae;
     font-size: 1.3em;
 }
 .add-button{
@@ -149,18 +149,70 @@ a
     font-size: 20px;
     color:#ffffff;
 }
-.button.button-left{
-    position: absolute;
-    bottom: 1px;
-    right: 12px;
+.button{
     padding: 15px 20px 10px 20px;
     border: none;
     border-radius: 6px 0 0 6px;
 }
-.button.button-left .fa-solid{
+.actions-post{
+    border-radius: 6px 0 0 6px;
+    bottom: 1px;
+    right: 0;
+    width: 50px;
+    background-color: #e9e9ed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.actions-post a{
+    padding: 15px 18px;
+}
+.actions-post .fa-solid{
     font-size: 20px;
     color:#222222;
 }
+/**************************************************************************
+                                    COMMENT
+**************************************************************************/
+.fa-user{
+    padding: 10px 11px;
+    color: #7d7c7c;
+    border-radius: 0;
+    background-color: #eaeef2;
+    border: solid 3px #ffffff;
+    font-size: 1.3em;
+}
+.container-comment{
+    background-color: #e5e5e5;
+    padding-left: 10px;
+    margin-top: 25px;
+}
+.container-comment p{
+    margin-bottom: 0;
+    padding: 10px 0 10px;
+}
+.container-comment h2{
+    padding: 20px 20px 15px 0;
+}
+.content-user-content-date{
+    background-color: #ffffff;
+    width: 100%;
+    margin: 0 5px 20px 15px;
+    padding: 5px;
+}
+.content-user-content-date .format-user{
+    border-bottom: solid 1px #ddd;
+    padding: 5px;
+}
+.content-user-comment{
+    display: flex;
+}
+
+
+
+
+
+
 /**************************************************************************
                                     FORM
 **************************************************************************/

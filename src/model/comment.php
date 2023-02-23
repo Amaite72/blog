@@ -16,7 +16,7 @@ class Comment{
 
       $database = dbConnect();
       
-      $statement = $database->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") 
+      $statement = $database->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, "%d %m %Y,@ %H:%i") 
                                          AS french_creation_date 
                                          FROM comments 
                                          WHERE post_id = ?
