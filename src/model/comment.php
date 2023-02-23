@@ -5,18 +5,18 @@ namespace Model;
 class Comment{
 
    public string $id;
+   private $pdo;
 
-   public function __construct($id){
+   public function __construct(string $id, \PDO $pdo){
 
       $this->id = $id;
+      $this->pdo = $pdo;
 
    } 
    
    public function getComments(){
-
-      $database = dbConnect();
-      
-      $statement = $database->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, "%d %m %Y,@ %H:%i") 
+     
+      $statement = $this->pdo->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, "%d %m %Y,@ %H:%i") 
                                          AS french_creation_date 
                                          FROM comments 
                                          WHERE post_id = ?
@@ -39,20 +39,16 @@ class Comment{
        }
       return $comments;
    }
-     
+   
+   function createComment(string $id, string $author, string $comment)
+   {
+      $statement = $this->pdo->prepare('INSERT INTO comments(post_id, author, comment, comment_date)
+                                           VALUES(?, ?, ?, NOW())');
+           $affectedLines = $statement->execute([$id, $author, $comment]);
+            var_dump($affectedLines);
+           return($affectedLines > 0);  
+   } 
 
 }
 
-function createComment(string $id, string $author, string $comment)
-   {
    
-      $database = dbConnect();
-      
-      $statement = $database->prepare('INSERT INTO comments(post_id, author, comment, comment_date)
-                                           VALUES(?, ?, ?, NOW())');
-           
-           $affectedLines = $statement->execute([$id, $author, $comment]);
-            var_dump($affectedLines);
-           return($affectedLines > 0);
-   
-   } 

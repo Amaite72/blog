@@ -72,11 +72,8 @@ class Post{
         $statement->execute([$image, $title, $content]);
     }
 
-    public function updatePost(string $id, array $post)
+    public function updatePost(string $id, string $image, string $title, string $content)
     {
-        $image = $post['image'];
-        $title = $post['title'];
-        $content = $post['content'];
 
         $statement = $this->pdo->prepare('UPDATE posts SET `image` = ?,`title` = ?, `content` = ?, `creation_date` = NOW() WHERE id = ?');
         $statement->execute([$image, $title, $content, $id]);

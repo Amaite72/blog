@@ -1,6 +1,5 @@
 <?php
 
-require_once('src/model.php');
 require_once('src/model/user.php');
 
 function createUser(array $input) {
@@ -27,7 +26,7 @@ function createUser(array $input) {
 	
 	if(mb_strlen($pswd) > 8){
 
-		$user = new \Model\User();
+		$user = new \Model\User(getPdo());
         $user->addUser($lname, $fname, $username, $email, $password);
 	
     }else{

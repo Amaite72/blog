@@ -10,7 +10,7 @@ function post(string $id)
 
 	$post = new \Model\Post(getPdo());
 	$article = $post->getPost($id);
-	$comments = new \Model\Comment($id);
+	$comments = new \Model\Comment($id,getPdo());
 	$getComments = $comments->getComments();
 	
 	require('templates/post.php');

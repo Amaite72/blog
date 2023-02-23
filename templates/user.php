@@ -3,7 +3,5 @@ require "../header.php";
 $title = "Utilisateur"; ?>
 <div class="container">
     <?php require "../form/formUser.php"; ?>
-</div>
-
-      
+</div>    
 <?php require "../footer.php"; ?>  

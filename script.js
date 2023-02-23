@@ -7,6 +7,8 @@ const buttonLeft = document.querySelector(".button-left");
 const buttonRight = document.querySelector(".button-right");
 const fontUpdate = document.querySelector(".fa-pen-to-square");
 const fontDelete = document.querySelector(".fa-trash");
+const buttonUpdate = document.querySelector("buttonUpdate");
+const buttonDelete = document.querySelector("buttonDelete");
 
 navChoices.style.width = "0";
 navChoices.style.height = "0";
@@ -63,6 +65,7 @@ function transitionNvabar(obj,boolStateChange)
 /***************** POST ACTIONS ***************/
 buttonRight.style.display = "block";
 buttonLeft.style.display = "none";
+
 buttonRight.addEventListener("click", function() {
     console.log(actionMode);
     actionMode.style.width = "160px";
@@ -73,7 +76,10 @@ buttonRight.addEventListener("click", function() {
     actionMode.style.transition = "width 1s"
     buttonRight.style.display = "none";
     buttonLeft.style.display = "block";
-    
+    buttonUpdate.style.display = "block";
+    buttonDelete.style.display = "block";
+    fontUpdate.style.display = "block";
+    fontDelete.style.display = "block";
 });
 
 
@@ -82,6 +88,10 @@ buttonLeft.addEventListener("click", function() {
     actionMode.style.transition = "width 1s"
     buttonRight.style.display = "block";
     buttonLeft.style.display = "none";
+    buttonUpdate.style.display = "none";
+    buttonDelete.style.display = "none";
+    fontUpdate.style.display = "none";
+    fontDelete.style.display = "none";
 }); 
 
 fontDelete.addEventListener("click", function() {
