@@ -65,18 +65,20 @@ function uploadControl($data){
         $extension = strtolower(end($tabExtension));
 
         $extensionAllowed = ["jpeg","png","gif","jpg"];
-        $maxSize = 400000;
+        $maxSize = 4000000;
 
         if(in_array($extension,$extensionAllowed) && $size <= $maxSize && $error === 0){
 
             $singleName = uniqid('',true);
             $newName = $singleName.'.'.$extension;
-
+            
             move_uploaded_file($tmp_name, 'upload/'.$newName);
+            return $newName;
         }else{
             echo "fichier non pris en charge ou taille trop importante du fichier ou il y a une erreur de fichier!";
+            return $name;
         }
-        return $newName;
+        
         
     }
 } 

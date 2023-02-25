@@ -1,5 +1,5 @@
 <div class="container">
-<img src="<?= $post['image'] ?>" alt="image" class="img-post">
+<img src="upload/<?= $post['image'] ?>" alt="image" class="img-post">
 </div>
 <div class="form-fo-contain">
     <form action="../index.php?action=updatePost&id=<?= $post['id'] ?>" method="POST" enctype='multipart/form-data'>

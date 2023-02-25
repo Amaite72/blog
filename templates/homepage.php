@@ -9,7 +9,7 @@ $title = "Potablog"; ?>
             foreach($articles as $post):       
          ?>
          <a href="/index.php?action=post&id=<?= urlencode($post['id'])?>" class="news">
-               <img class="img-posts" src=<?php echo $post['image']; ?> alt="image">
+               <img class="img-posts" src="<?php echo "upload/".$post['image']; ?>" alt="image">
                <h3><?= $post['title']; ?></h3>
                <p>
                   <?php

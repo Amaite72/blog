@@ -5,7 +5,7 @@
         <a href="../index.php" class="button-return"><i class="fa-solid fa-arrow-rotate-right"></i></a>
     </div>
     <div class="container position-relative">
-        <img src="<?php echo $article['image']; ?>" alt="image" class="img-post">   
+        <img src="upload/<?php echo $article['image']; ?>" alt="image" class="img-post">   
         <p><?= nl2br($article['content']); ?></p>
         <div class="section-profil">
            <i class="fa-solid fa-user img-profil"></i>
