@@ -6,12 +6,12 @@ function createUser(array $input) {
 
 	if(!empty($input['lname']) || !empty($input['fname']) || !empty($input['username']) || !empty($input['email']) || !empty($input['password'])) {
 		
-    	$lname = (htmlentities(trim($input['lname'])));;
-    	$fname = (htmlentities(trim($input['fname'])));
-		$username = (htmlentities(trim($input['username'])));
-		$email = (htmlentities(trim($input['email'])));
-		$pswd = (htmlentities(trim($input['password'])));
-		$pswdConfirm = (htmlentities(trim($input['passwordConfirm'])));
+    	$lname = (h(trim($input['lname'])));;
+    	$fname = (h(trim($input['fname'])));
+		$username = (h(trim($input['username'])));
+		$email = (h(trim($input['email'])));
+		$pswd = (h(trim($input['password'])));
+		$pswdConfirm = (h(trim($input['passwordConfirm'])));
 		if($pswd === $pswdConfirm){
 			$password = password_hash($pswd, PASSWORD_DEFAULT);
 			}else{

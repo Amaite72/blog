@@ -1,5 +1,9 @@
 <?php require "header.php"; ?>
-    <h3><?= $article['title']; ?></h3>    
+     
+    <div class="container position-relative">
+        <h3 classe="title-post"><?= $article['title']; ?></h3> 
+        <a href="../index.php" class="button-return"><i class="fa-solid fa-arrow-rotate-right"></i></a>
+    </div>
     <div class="container position-relative">
         <img src="<?php echo $article['image']; ?>" alt="image" class="img-post">   
         <p><?= nl2br($article['content']); ?></p>
@@ -15,7 +19,8 @@
                  ?>
               </small>
            </div>
-        </div>            
+        </div> 
+                   
     </div>
     <div class="container-actions-post">
         <div class="actions-post position-absolute">

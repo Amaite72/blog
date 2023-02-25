@@ -52,6 +52,36 @@ function separateTime($time){
     return $newTime;
 }
 
+function uploadControl($data){
+
+    if(isset($data['image'])){
+        $name = $data['image']['name'];
+        $type = $data['image']['type'];
+        $tmp_name = $data['image']['tmp_name'];
+        $error = $data['image']['error'];
+        $size = $data['image']['size'];
+        
+        $tabExtension = explode('.',$name);
+        $extension = strtolower(end($tabExtension));
+
+        $extensionAllowed = ["jpeg","png","gif","jpg"];
+        $maxSize = 400000;
+
+        if(in_array($extension,$extensionAllowed) && $size <= $maxSize && $error === 0){
+
+            $singleName = uniqid('',true);
+            $newName = $singleName.'.'.$extension;
+
+            move_uploaded_file($tmp_name, 'upload/'.$newName);
+        }else{
+            echo "fichier non pris en charge ou taille trop importante du fichier ou il y a une erreur de fichier!";
+        }
+        return $newName;
+        
+    }
+} 
+
+
 /* function success(){
 
 } */

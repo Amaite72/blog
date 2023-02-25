@@ -7,7 +7,6 @@ require_once('src/model/post.php');
 
 function post(string $id)
 {
-
 	$post = new \Model\Post(getPdo());
 	$article = $post->getPost($id);
 	$comments = new \Model\Comment($id,getPdo());

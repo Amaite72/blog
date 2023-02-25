@@ -7,9 +7,8 @@ function addComment($id, array $input)
 
 	if (!empty($input['author']) && !empty($input['comment'])) {
 
-    	$author = (htmlentities(trim($input['author'])));;
-    	$comment = (htmlentities(trim($input['comment'])));
-		var_dump($comment);
+    	$author = (h(trim($input['author'])));;
+    	$comment = (h(trim($input['comment'])));
 	}else {
 
 		throw new Exception('Les données du formulaire sont invalides.');

@@ -2,13 +2,7 @@ const bgTitle = document.getElementById("title-bg-img")
 const navChoices = document.getElementById("nav-choices-display");
 const navButton = document.getElementById("nav-choices");
 const navButtonClose = document.getElementById("nav-choices-close");
-const actionMode = document.querySelector(".actions-post");
-const buttonLeft = document.querySelector(".button-left");
-const buttonRight = document.querySelector(".button-right");
-const fontUpdate = document.querySelector(".fa-pen-to-square");
-const fontDelete = document.querySelector(".fa-trash");
-const buttonUpdate = document.querySelector("buttonUpdate");
-const buttonDelete = document.querySelector("buttonDelete");
+
 
 navChoices.style.width = "0";
 navChoices.style.height = "0";
@@ -22,18 +16,16 @@ navChoices.style.backgroundColor = "#ffffff";
 
 navButton.addEventListener("click", function() {
     navChoices.style.display = "block";  
-
     navButtonClose.style.display = "block"; 
-    transitionNvabar(navChoices,true); 
+    transitionNavbar(navChoices,true); 
 });
 navButtonClose.addEventListener("click", function() {
-    /* navChoices.style.display = "none";  */
     navButton.style.display = "block"; 
-    transitionNvabar(navChoices,false); 
+    transitionNavbar(navChoices,false); 
        
 });
 
-function transitionNvabar(obj,boolStateChange)
+function transitionNavbar(obj,boolStateChange)
 {
     console.log('test');
     if (boolStateChange == true)
@@ -63,12 +55,24 @@ function transitionNvabar(obj,boolStateChange)
 }
 
 /***************** POST ACTIONS ***************/
+const actionMode = document.querySelector(".actions-post");
+const buttonLeft = document.querySelector(".button-left");
+const buttonRight = document.querySelector(".button-right");
+const fontUpdate = document.querySelector(".fa-pen-to-square");
+const fontDelete = document.querySelector(".fa-trash");
+const buttonUpdate = document.querySelector(".buttonUpdate");
+const buttonDelete = document.querySelector(".buttonDelete");
+
 buttonRight.style.display = "block";
 buttonLeft.style.display = "none";
+fontUpdate.style.display = "none";
+fontDelete.style.display = "none";
+buttonUpdate.style.display = "none";
+buttonDelete.style.display = "none";
 
 buttonRight.addEventListener("click", function() {
     console.log(actionMode);
-    actionMode.style.width = "160px";
+    actionMode.style.width = "159px";
     /* while(actionMode.style.width != "150px"){
         fontUpdate.style.display = "none";
         fontDelete.style.display = "none";
@@ -81,7 +85,6 @@ buttonRight.addEventListener("click", function() {
     fontUpdate.style.display = "block";
     fontDelete.style.display = "block";
 });
-
 
 buttonLeft.addEventListener("click", function() {
     actionMode.style.width = "50px";

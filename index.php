@@ -53,7 +53,7 @@ try{
 			}
 		}else if($_GET['action'] === 'addPost'){
 			if(isset($_POST)){
-
+				
 				addPost($_POST);
 
 			}

@@ -45,7 +45,7 @@ class Comment{
       $statement = $this->pdo->prepare('INSERT INTO comments(post_id, author, comment, comment_date)
                                            VALUES(?, ?, ?, NOW())');
            $affectedLines = $statement->execute([$id, $author, $comment]);
-            var_dump($affectedLines);
+            
            return($affectedLines > 0);  
    } 
 

@@ -7,7 +7,6 @@ require_once('src/model/post.php');
 
 function deletePost(string $id)
 {
-
 	$deletePost = new \Model\Post(getPdo()); 
 	$deletePost->deletePost($id); 
 	header('Location: /index.php');

@@ -1,3 +1,4 @@
+
 <div class="form-fo-contain">
     <h2 class="h2">Ajouter un article</h2>
     <form action="../index.php?action=addPost" method="POST">
@@ -16,4 +17,3 @@
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
 </div>
-

@@ -101,7 +101,7 @@ a
 .news p
 {
     color: #8A8A8A;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 .news
 {
@@ -232,5 +232,31 @@ form{
 }
 .btn.btn-primary{
     background-color:#07574d;
-    border-color: #07574dab;
+    border-color: #07574d;
+}
+
+/**************************************************************************
+                                    BUTTON RETURN
+**************************************************************************/
+.button-return{
+    width: 45px;
+    height: 45px;    
+    border-radius: 5px;
+    background-color: #07574d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    transition: transform 0.3s;
+    box-shadow: 0 6px 10px 0 #0000001a, 0 1px 18px 0 #0000001a 0 3px 5px -1px #0003;
+}
+.button-return:hover{
+    transform: scale(1.2);
+    text-decoration: none;
+}
+.button-return .fa-solid{
+    font-size: 20px;
+    color:#ffffff;
 }

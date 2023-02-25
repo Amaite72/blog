@@ -1,15 +1,13 @@
 <?php
 
 require_once('src/model/post.php');
-
 function addPost(array $input)
 {
 	if (!empty($input['title']) && !empty($input['content']) && !empty($input['image'])) {
 
-		$image = (htmlentities(trim($input['image'])));
-    	$title = (htmlentities(trim($input['title'])));
-    	$content = (htmlentities(trim($input['content'])));
-
+		$image = (h(trim($input['image'])));
+    	$title = (h(trim($input['title'])));
+    	$content = (h(trim($input['content'])));
 	}else {
 
 		throw new Exception('Les données du formulaire sont invalides.');
@@ -30,3 +28,4 @@ function addPost(array $input)
 	}
 	
 }
+
